@@ -1,0 +1,42 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.section, .newsSection {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projectSection, .youtubeSection {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projectCards, .youtubeVideos {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* 가로 스크롤 활성화 */
+}
+
+.projectCard, .youtubeCard {
+  flex: 0 0 200px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.projectCard img, .youtubeCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}

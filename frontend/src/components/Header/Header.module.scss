@@ -1,0 +1,33 @@
+.nav-container{
+    background-color: aqua;
+}
+.nav-bar {
+    display: flex; /* Flexbox 레이아웃 적용 */
+    align-items: center; /* 세로축 가운데 정렬 */
+    justify-content: space-between; /* 이미지와 메뉴를 양쪽에 배치 */
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+  }
+  
+  .logo-container {
+    width: 100%; /* 너비를 전체로 설정 */
+    display: flex;
+    justify-content: center; /* 수평으로 가운데 정렬 */
+    align-items: center; /* 수직으로 가운데 정렬 */
+  }
+  
+  .logo {
+    width: 180px;
+    height: 120px;
+  }
+  
+  .nav-menu {
+    display: flex;
+    width: 100%; /* 너비를 전체로 설정 */
+    align-items: center;
+    justify-content: center; /* 수평으로 가운데 정렬 */
+    gap: 1rem;
+    font-weight: 500;
+    border-bottom: none; /* 기본 하단 선 제거 */
+  }
