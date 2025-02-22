@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jieon.github.io/gastroenterologyblogs/",
+  "homepage": "https://jieon.github.io/labs_blog/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
