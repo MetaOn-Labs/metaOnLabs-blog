@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jieon.github.io/labs_blog/",
+  "homepage": "https://jieon.github.io/gastrerology_labs_blog/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
