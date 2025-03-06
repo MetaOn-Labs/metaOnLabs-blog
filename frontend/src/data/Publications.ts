@@ -1,4 +1,4 @@
-export const publication = [
+export const publications = [
   {
     code: 12, 
     title: '“Low gamma-butyrobetaine dioxygenase (BBOX1) expression as a prognostic biomarker in patients with clear cell renal cell carcinoma: a machine learning approach.”',
