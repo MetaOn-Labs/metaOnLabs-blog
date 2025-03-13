@@ -9,7 +9,8 @@ import park from '../../assets/concept/park.png'
 const TeamComponent: React.FC = () => {
   const menuList = [
     { name: 'M.D', url: '#md' },
-    { name: 'engineer', url: '#engineer' },
+    { name: 'CO-WORKER', url: '#co-worker' },
+    { name: 'INSTITUTION', url: '#institution' },
   ]
   const edu = ['을지대학교 대학원 의학박사 (내과학)', '을지대학교 대학원 의학석사 (내과학)', '충남대학교 의과대학 학사']
   const carrer = [
@@ -74,8 +75,8 @@ const TeamComponent: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div id="engineer" className='scroll-m-40'>
-              <PageTitle title="engineer" page="team" />
+            <div id="co-worker" className='scroll-m-40'>
+              <PageTitle title="co-worker" page="team" />
               <div >
                 <div className="mt-16 flex gap-20 lg:flex-row md:flex-col sm: flex-col">
                   <div className="w-60 h-60 overflow-hidden">
