@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import { Layout, Menu } from 'antd';
-import lab_logo from '../../assets/concept/logo2.png'
+import lab_logo from '../../assets/concept/racp_logo.png'
 import { Link } from 'react-router-dom'
 import { Navbar as MTNavbar, MobileNav, Typography, Button, IconButton } from '@material-tailwind/react'
 import routes from '../../routes'
@@ -16,7 +16,7 @@ const AppHeader: React.FC = () => {
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map(({ name, path }) => (
-        <Typography key={name} as="li" variant="small" color="inherit" className="capitalize">
+        <Typography key={name} as="li" variant="lead" color="inherit" className="capitalize">
           <Link
             to={path}
             // target={target}
@@ -46,7 +46,7 @@ const AppHeader: React.FC = () => {
         <MTNavbar color="transparent" className="p-3">
           <div className="container mx-auto flex items-center justify-between text-black">
             <Link to="/">
-              <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">{'RACP'}</Typography>
+              <img src={lab_logo} alt='logo' width={105}/>
             </Link>
             <div className="hidden lg:block">{navList}</div>
             <IconButton
@@ -63,7 +63,7 @@ const AppHeader: React.FC = () => {
               )}
             </IconButton>
           </div>
-          <MobileNav className="rounded-xl bg-white px-4 pt-2 pb-4 text-blue-gray-900" open={openNav}>
+          <MobileNav className="rounded-xl bg-white px-4 pt-2 pb-4 text-blue-gray-900 lg:hidden" open={openNav}>
             <div className="container mx-auto">
               {navList}
             </div>
