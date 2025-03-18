@@ -1,12 +1,11 @@
-import AppHeader from './components/Header/Header'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Dashboard from './components/page/Dashboard';
-import Team from './components/page/Team';
-import Footer from './components/Footer';
-import Publication from './components/page/Publication';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
+import AppHeader from './components/layout/Header'
+import Footer from './components/layout/footer'
+import routes from './routes'
+
 // import PublicationDetail from './components/page/PublicationDetail';
 
-const BASE_URL = import.meta.env.BASE_URL; // Vite 환경 변수 사용
+const BASE_URL = import.meta.env.BASE_URL // Vite 환경 변수 사용
 
 function App() {
   return (
@@ -15,12 +14,8 @@ function App() {
         <AppHeader />
         <div className="main-content">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/team" element={<Team />} />
-            <Route path='/publication'>
-              <Route index element={<Publication />} />
-              
-            </Route>
+            {routes.map(({ path, element }, key) => element && <Route key={key} path={path} element={element} />)}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </div>

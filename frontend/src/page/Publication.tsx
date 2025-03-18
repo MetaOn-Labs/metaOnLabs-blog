@@ -1,7 +1,7 @@
-import SubSideMenu from '../SubSideMenu'
-import PageTitle from '../PageTitle'
-import { publications } from '../../data/Publications'
-import { Lectures } from '../../data/Lectures'
+import SubSideMenu from '../components/SubSideMenu'
+import PageTitle from '../components/PageTitle'
+import { publications } from '../data/Publications'
+import { Lectures } from '../data/Lectures'
 
 const Publication = () => {
   const menuList = [

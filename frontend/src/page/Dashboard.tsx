@@ -1,13 +1,9 @@
 import React from 'react';
 // import DashboardPage from '../Dashboard/DashboardPage';
-import Page from '../Dashboard/Page';
+import Page from '../components/Dashboard/Page';
 
 const Dashboard: React.FC = () => {
-  return (
-    <div>
-      <Page />
-    </div>
-  );
+  return <Page />
 };
 
 export default Dashboard;

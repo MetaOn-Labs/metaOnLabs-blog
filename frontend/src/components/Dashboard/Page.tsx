@@ -1,4 +1,4 @@
-import Carousel from '../Carousel/Carousel'
+import Carousel from '../Carousel'
 import thumnail from '../../assets/concept/y_thum_1.png'
 
 import image1 from '../../assets/images/main_carousel_1.png'

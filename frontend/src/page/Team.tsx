@@ -1,10 +1,10 @@
 import React from 'react'
-import SubSideMenu from '../SubSideMenu'
-import PageTitle from '../PageTitle'
-import moon from '../../assets/concept/moon2.jpeg'
-import yu from '../../assets/concept/yu.jpeg'
-import kim from '../../assets/concept/kim.jpeg'
-import park from '../../assets/concept/park.png'
+import SubSideMenu from '../components/SubSideMenu'
+import PageTitle from '../components/PageTitle'
+import moon from '../assets/concept/moon2.jpeg'
+import yu from '../assets/concept/yu.jpeg'
+import kim from '../assets/concept/kim.jpeg'
+import park from '../assets/concept/park.png'
 
 const TeamComponent: React.FC = () => {
   const menuList = [
