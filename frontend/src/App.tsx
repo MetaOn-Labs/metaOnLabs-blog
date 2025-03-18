@@ -4,6 +4,7 @@ import Dashboard from './components/page/Dashboard';
 import Team from './components/page/Team';
 import Footer from './components/Footer';
 import Publication from './components/page/Publication';
+import Media from './components/page/Media';
 // import PublicationDetail from './components/page/PublicationDetail';
 
 const BASE_URL = import.meta.env.BASE_URL; // Vite 환경 변수 사용
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/media" element={<Media />} />
             <Route path='/publication'>
               <Route index element={<Publication />} />
               

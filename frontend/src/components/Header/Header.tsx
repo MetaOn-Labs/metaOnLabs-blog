@@ -23,8 +23,9 @@ const AppHeader: React.FC = () => {
           </div>
           <nav className='flex mb-6'>
             <Link to={'/publication'} className='border-r px-5 border-gray-light'>Publication</Link>
-            <Link to={'/solutions'} className='border-r px-5 border-gray-light'>Solution & Software</Link>
-            <Link to={'/technology'} className='border-r px-5 border-gray-light'>Technology</Link>
+            {/* <Link to={'/solutions'} className='border-r px-5 border-gray-light'>Solution & Software</Link>
+            <Link to={'/technology'} className='border-r px-5 border-gray-light'>Technology</Link> */}
+            <Link to={'/Media'} className='border-r px-5 border-gray-light'>Media</Link>
             <Link to={'/team'} className='border-r px-5 border-gray-light'>Team</Link>
           </nav>
         </div>

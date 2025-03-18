@@ -82,7 +82,7 @@ export const News: MediaInterface[] = [
   },
   {
     code: 16,
-    title: `https://news.cauon.net/news/articleView.html?idxno=40522`,
+    title: `미세먼지 심한 날, 감기 더 잘 걸린다`,
     url: 'https://news.kbs.co.kr/news/pc/view/view.do?ncd=7859944'
   },
 ];
