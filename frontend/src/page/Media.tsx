@@ -1,8 +1,8 @@
 // import Carousel from "../Carousel/Carousel";
-import SubSideMenu from '../SubSideMenu'
-import PageTitle from '../PageTitle'
-import { News } from '../../data/Media';
-import { Youtubes } from '../../data/Media';
+import SubSideMenu from '../components/SubSideMenu'
+import PageTitle from '../components/PageTitle'
+import { News } from '../data/Media';
+import { Youtubes } from '../data/Media';
 
 const Media = () => {
   const menuList = [

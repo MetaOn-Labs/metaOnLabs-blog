@@ -1,7 +1,7 @@
-import moon from '../../assets/concept/moon2.jpeg'
-import yu from '../../assets/concept/yu.jpeg'
-import kim from '../../assets/concept/kim.jpeg'
-import park from '../../assets/concept/park.png'
+import moon from '../assets/concept/moon2.jpeg'
+import yu from '../assets/concept/yu.jpeg'
+import kim from '../assets/concept/kim.jpeg'
+import park from '../assets/concept/park.png'
 
 const Card = (props) => (
   <div className="flex-shrink-0 w-[250px] bg-white shadow-md cursor-pointer transition-transform transform hover:-translate-y-1 hover:shadow-lg m-4">
@@ -13,7 +13,7 @@ const Card = (props) => (
     <div className="p-4">
       <h2 className="text-lg font-bold text-gray-800">{props.title}</h2>
       <p className="text-sm text-gray-600">{props.content}</p>
-      <span className="text-sm text-gray-600">{props.content}</span>
+      {/* <span className="text-sm text-gray-600">{props.content}</span> */}
     </div>
   </div>
 );

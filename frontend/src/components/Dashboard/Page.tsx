@@ -5,7 +5,8 @@ import image1 from '../../assets/images/main_carousel_1.png'
 import image2 from '../../assets/images/main_carousel_2.png'
 
 import { useNavigate } from 'react-router-dom'
-import TeamCard from '../page/TeamCard'
+import TeamCard from '../../page/TeamCard'
+import DashboardTitle from '../DashboardTitle'
 
 const Page = () => {
   const navigate = useNavigate()
@@ -18,12 +19,12 @@ const Page = () => {
 
   return (
     <main className="space-y-9 mb-20 overflow-x-hidden">
-      <Carousel images={images} />
-      <section className="flex justify-center">
-        <h1 className="font-bold">
-        Respiratory Labs AI Connecte Project</h1>
+      <section className="absolute z-30 top-1/2 mt-20 text-white w-full text-center">
+        <h1 className="font-bold">Respiratory Labs AI Connecte Project</h1>
       </section>
+      <Carousel images={images} />
       <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
+        <DashboardTitle section="Our Team" heading="Here are our heroes" />
         <TeamCard />
       </section>
       {/* <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
