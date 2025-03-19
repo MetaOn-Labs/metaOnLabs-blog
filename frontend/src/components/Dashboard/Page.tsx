@@ -24,8 +24,12 @@ const Page = () => {
       </section>
       <Carousel images={images} />
       <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
-        <DashboardTitle section="Our Team" heading="Here are our heroes" />
+        <DashboardTitle section="Our Team" heading="Actionable ideas and insights from industry leaders" />
         <TeamCard />
+      </section>
+      <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
+        <DashboardTitle section="Co-Working" heading="Working Together for a Better Tomorrow" />
+        {/* <TeamCard /> */}
       </section>
       {/* <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
         <div className="flex gap-5 overflow-x-auto items-center">
