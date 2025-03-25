@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import { Layout, Menu } from 'antd';
 import lab_logo from '../../assets/concept/racp_logo.png'
 import { Link } from 'react-router-dom'
-import { Navbar as MTNavbar, MobileNav, Typography, Button, IconButton } from '@material-tailwind/react'
+import { Navbar as MTNavbar, MobileNav, Typography, IconButton } from '@material-tailwind/react'
 import routes from '../../routes'
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -43,19 +43,18 @@ const AppHeader: React.FC = () => {
       </section>
       <hr className="border-[#dedede]" />
       <section>
-        <MTNavbar color="transparent" className="p-3">
+        <MTNavbar color="transparent" className="p-3" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           <div className="container mx-auto flex items-center justify-between text-black">
             <Link to="/">
               <img src={lab_logo} alt='logo' width={105}/>
             </Link>
             <div className="hidden lg:block">{navList}</div>
             <IconButton
-              variant="text"
-              size="sm"
-              color="black"
-              className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-              onClick={() => setOpenNav(!openNav)}
-            >
+                variant="text"
+                size="sm"
+                color="gray"
+                className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                onClick={() => setOpenNav(!openNav)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
               {openNav ? (
                 <XMarkIcon strokeWidth={2} className="h-6 w-6" />
               ) : (
