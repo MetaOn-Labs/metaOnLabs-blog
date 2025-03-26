@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Vercel에서는 '/'로 설정
+  base: '/gastrerology_labs_blog/', // Vercel에서는 '/'로 설정
 });
