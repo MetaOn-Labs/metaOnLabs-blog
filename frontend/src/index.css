@@ -81,3 +81,7 @@ button:focus-visible {
     overflow-y: auto;
   }
 }
+
+.layout {
+  @apply xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto
+}

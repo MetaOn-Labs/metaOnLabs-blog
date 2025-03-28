@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import DashboardTitle from '../DashboardTitle'
 import TeamCard from '../TeamCard'
 import YoutubeThumbnailCard from '../YoutubeThumbnailCard'
+import { SectionLayout } from '../layout/Layout'
 
 const Page = () => {
   const navigate = useNavigate()
@@ -27,12 +28,12 @@ const Page = () => {
       </section> */}
       <Carousel images={images} />
       <div className='h-20'/>
-      <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
+      <SectionLayout>
         <DashboardTitle section="Our Team" heading="Actionable ideas and insights from industry leaders" ><span /></DashboardTitle>
         <TeamCard />
-      </section>
+      </SectionLayout>
       <div className='h-20'/>
-      <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
+      <SectionLayout>
         <DashboardTitle section="Co-Working" heading="Working Together for a Better Tomorrow"><span /></DashboardTitle>
         <div className="flex flex-col justify-center md:flex-row gap-6 max-w-6xl mx-auto">
           <div className="flex flex-col items-center justify-center gap-6">
@@ -104,14 +105,14 @@ const Page = () => {
           </div>
         </div>
           <Button className="mt-6 mx-auto flex" variant="outlined" onClick={() => onClickMore('/team#institution')} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>see all projects</Button>
-      </section>
+      </SectionLayout>
       <div className='h-20'/>
-      <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
+      <SectionLayout>
         <DashboardTitle section="YOUTUBE" heading=""><span /></DashboardTitle>
         <YoutubeThumbnailCard />
         {/* <TeamCard /> */}
-      </section>
-      {/* <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
+      </SectionLayout>
+      {/* <SectionLayout>
         <div className="flex gap-5 overflow-x-auto items-center">
           <div className="font-semibold text-[26px] text-gray-light pr-4 border-r">YouTube</div>
           {Array(5)
@@ -122,7 +123,7 @@ const Page = () => {
               </div>
             ))}
         </div>
-      </section> */}
+      </SectionLayout> */}
     </main>
   )
 }
