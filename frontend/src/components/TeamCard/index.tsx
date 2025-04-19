@@ -13,7 +13,7 @@ const CardContainer = ({ cards }) => (
           alt={card.title}
           size="xxl"
           variant="rounded"
-          className="h-full w-full shadow-lg shadow-gray-500/25" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        />
+          className="h-full md:w-72 xl:w-full shadow-lg shadow-gray-500/25 sm:w-60 mx-auto" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        />
         <Typography variant="h5" color="blue-gray" className="mt-6 mb-1">
           {card.title}
         </Typography>
