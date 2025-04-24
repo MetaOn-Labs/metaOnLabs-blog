@@ -26,7 +26,7 @@ const CardContainer = ({ cards }) => (
 const TeamCard = () => {
   const cardsData = [
     { id: 1, title: 'KyongMin Moon', content: 'M.D Ph.d', imgUrl: moon },
-    { id: 2, title: 'Jieon Kim', content: 'AI ∙ Software', imgUrl: kim },
+    { id: 2, title: 'Badagreen', content: 'AI ∙ Software', imgUrl: kim },
     { id: 3, title: 'Yeongju Yu', content: 'Software', imgUrl: yu },
     { id: 4, title: 'Sanghwan park', content: 'Software', imgUrl: park },
   ]
