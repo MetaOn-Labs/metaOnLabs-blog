@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Gastroenterology-Labs.github.io/gastrerology_labs_blog/",
+  "homepage": "https://metaonlab.co.kr",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
