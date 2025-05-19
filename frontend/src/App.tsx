@@ -9,7 +9,7 @@ const BASE_URL = import.meta.env.BASE_URL // Vite 환경 변수 사용
 
 function App() {
   return (
-    <Router basename={BASE_URL}>
+    <Router basename="/">
       <div id="root">
         <AppHeader />
         <div className="main-content">
