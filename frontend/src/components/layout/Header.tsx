@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import { Layout, Menu } from 'antd';
-import lab_logo from '../../assets/concept/racp_logo.png'
+import lab_logo from '../../assets/concept/metaonlab_logo_vertical.png'
 import { Link } from 'react-router-dom'
 import { Navbar as MTNavbar, MobileNav, Typography, IconButton } from '@material-tailwind/react'
 import routes from '../../routes'
@@ -46,7 +46,7 @@ const AppHeader: React.FC = () => {
         <MTNavbar color="transparent" className="p-3" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           <div className="container mx-auto flex items-center justify-between text-black">
             <Link to="/">
-              <img src={lab_logo} alt='logo' width={105}/>
+              <img src={lab_logo} alt='logo' width={130}/>
             </Link>
             <div className="hidden lg:block">{navList}</div>
             <IconButton

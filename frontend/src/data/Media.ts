@@ -85,6 +85,11 @@ export const News: MediaInterface[] = [
     title: `미세먼지 심한 날, 감기 더 잘 걸린다`,
     url: 'https://news.kbs.co.kr/news/pc/view/view.do?ncd=7859944'
   },
+  {
+    code: 17,
+    title: `"의료AI, 대체가 아닌 보조…진단·진료는 여전히 의사 몫"[인터뷰]`,
+    url: 'https://mobile.newsis.com/view_amp.html?ar_id=NISX20250507_0003165718'
+  },
 ];
 
 export const Youtubes: MediaInterface[] = [
