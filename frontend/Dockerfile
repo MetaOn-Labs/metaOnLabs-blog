@@ -8,3 +8,6 @@ COPY ./dist /usr/share/nginx/html
 EXPOSE 80
 
 # nginx 실행 (기본 entrypoint 사용)
+FROM nginx:alpine
+COPY ./dist /usr/share/nginx/html
+EXPOSE 80
