@@ -43,10 +43,10 @@ echo "=================================="
 echo "🐳 Docker 이미지 빌드 및 실행"
 echo "=================================="
 
-docker build -t gastro-frontend . || { echo "❌ Docker 이미지 빌드 실패"; exit 1; }
+docker build -t metaon-frontend . || { echo "❌ Docker 이미지 빌드 실패"; exit 1; }
 
-docker rm -f gastro-frontend-container 2>/dev/null
-docker run -d -p 80:80 --name gastro-frontend-container gastro-frontend || {
+docker rm -f metaon-frontend-container 2>/dev/null
+docker run -d -p 80:80 --name metaon-frontend-container metaon-frontend || {
   echo "❌ Docker 컨테이너 실행 실패"; exit 1;
 }
 
