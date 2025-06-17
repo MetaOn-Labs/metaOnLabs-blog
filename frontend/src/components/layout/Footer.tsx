@@ -5,7 +5,7 @@ const Footer = () => {
         {/* <div>
           <div>주소</div>
         </div> */}
-        <div>© 2025. RACP 팀블로그 all rights reserved.</div>
+        <div>© 2025. MetaOn Lab 팀블로그 all rights reserved.</div>
       </div>
     </footer>
   )
