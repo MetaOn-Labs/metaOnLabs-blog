@@ -16,7 +16,7 @@ const AppHeader: React.FC = () => {
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map(({ name, path }) => (
-        <Typography key={name} as="li" variant="lead" color="inherit" className="capitalize">
+        <Typography key={name} as="li" variant="lead" color="inherit" className="capitalize" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           <Link
             to={path}
             // target={target}
@@ -43,7 +43,7 @@ const AppHeader: React.FC = () => {
       </section>
       <hr className="border-[#dedede]" />
       <section>
-        <MTNavbar color="transparent" className="p-3" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <MTNavbar color="transparent" className="p-3" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} onResize={undefined} onResizeCapture={undefined}>
           <div className="container mx-auto flex items-center justify-between text-black">
             <Link to="/">
               <img src={lab_logo} alt='logo' width={130}/>
@@ -54,7 +54,7 @@ const AppHeader: React.FC = () => {
                 size="sm"
                 color="gray"
                 className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-                onClick={() => setOpenNav(!openNav)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
+                onClick={() => setOpenNav(!openNav)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} onResize={undefined} onResizeCapture={undefined}            >
               {openNav ? (
                 <XMarkIcon strokeWidth={2} className="h-6 w-6" />
               ) : (

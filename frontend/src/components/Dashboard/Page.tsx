@@ -53,10 +53,18 @@ const Page = () => {
               color="transparent"
               className="px-10 w-80 h-48 justify-center"
               placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
             >
-              <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              <CardBody
+                placeholder={undefined}
+                onResize={undefined}
+                onResizeCapture={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
                 <img src={zoivision} alt="logo" className="w-full " />
               </CardBody>
             </Card>
@@ -64,11 +72,13 @@ const Page = () => {
               shadow={true}
               className="px-10 w-80 h-48 justify-center"
               placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
             >
-              {/* <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}> */}
-                <img src={vuno} alt="logo" className="w-full " />
+              {/* <CardBody> */}
+              <img src={vuno} alt="logo" className="w-full " />
               {/* </CardBody> */}
             </Card>
           </div>
@@ -77,10 +87,18 @@ const Page = () => {
               shadow={true}
               className="px-10 w-80 h-48 justify-center"
               placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
             >
-              <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              <CardBody
+                placeholder={undefined}
+                onResize={undefined}
+                onResizeCapture={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
                 <img src={cau} alt="logo" className="w-full " />
               </CardBody>
             </Card>
@@ -88,11 +106,13 @@ const Page = () => {
               shadow={true}
               className="px-10 w-80 h-48 justify-center"
               placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
             >
-              {/* <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}> */}
-                <img src={yonse} alt="logo" className="w-full " />
+              {/* <CardBody> */}
+              <img src={yonse} alt="logo" className="w-full " />
               {/* </CardBody> */}
             </Card>
           </div>
@@ -101,22 +121,26 @@ const Page = () => {
               shadow={true}
               className="px-10 w-80 h-48 justify-center"
               placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
             >
-              {/* <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}> */}
-                <img src={kit} alt="logo" className="w-full " />
+              {/* <CardBody> */}
+              <img src={kit} alt="logo" className="w-full " />
               {/* </CardBody> */}
             </Card>
             <Card
               shadow={true}
               className="px-10 w-80 h-48 justify-center"
               placeholder={undefined}
+              onResize={undefined}
+              onResizeCapture={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
             >
-              {/* <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}> */}
-                <img src={aitrics} alt="logo" className="w-full " />
+              {/* <CardBody> */}
+              <img src={aitrics} alt="logo" className="w-full " />
               {/* </CardBody> */}
             </Card>
           </div>
@@ -128,6 +152,8 @@ const Page = () => {
           placeholder={undefined}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
+          onResize={undefined}
+          onResizeCapture={undefined}
         >
           see all co-working
         </Button>
