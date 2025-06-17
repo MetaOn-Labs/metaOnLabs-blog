@@ -16,7 +16,7 @@ export const routes = [
   },
   {
     name: "Media",
-    path: "/medai",
+    path: "/media",
     element: <Media />,
   },
   {

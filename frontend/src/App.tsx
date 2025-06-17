@@ -5,7 +5,7 @@ import routes from './routes'
 
 // import PublicationDetail from './components/page/PublicationDetail';
 
-const BASE_URL = import.meta.env.BASE_URL // Vite 환경 변수 사용
+// const BASE_URL = import.meta.env.BASE_URL // Vite 환경 변수 사용
 
 function App() {
   return (

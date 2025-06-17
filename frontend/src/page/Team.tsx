@@ -3,8 +3,9 @@ import SubSideMenu from '../components/SubSideMenu'
 import PageTitle from '../components/PageTitle'
 import moon from '../assets/concept/moon2.jpeg'
 import yu from '../assets/concept/yu.jpeg'
-import kim from '../assets/concept/kim.jpeg'
-import park from '../assets/concept/park.png'
+import kim from '../assets/concept/kim.png'
+import park from '../assets/concept/park.jpeg'
+import jang from '../assets/concept/jang.png'
 
 const TeamComponent: React.FC = () => {
   const menuList = [
@@ -107,6 +108,17 @@ const TeamComponent: React.FC = () => {
                   <div>
                     <h2 className="text-2xl font-bold tracking-widest flex gap-4">
                       박상환<p className="text-gray-400">Software</p>
+                    </h2>
+                  </div>
+                  <div className="mt-16 ml-4"></div>
+                </div>
+                <div className="mt-16 flex gap-20 lg:flex-row md:flex-col sm: flex-col">
+                  <div className="w-60 h-60 overflow-hidden">
+                    <img src={jang} alt="team-image" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-widest flex gap-4">
+                      장영인<p className="text-gray-400">AI</p>
                     </h2>
                   </div>
                   <div className="mt-16 ml-4"></div>
