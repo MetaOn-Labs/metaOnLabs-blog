@@ -10,7 +10,7 @@ const SubSideMenu = (props: Props) => {
       <div>
         <div className="text-center px-4 pb-3 border-b border-gray-600">
           <h1 className="uppercase text-gray-600 m-0 text-xl font-bold">{title}</h1>
-          <span className="text-gray-500 text-sm font-semibold">GSAL</span>
+          <span className="text-gray-500 text-sm font-semibold">MetaOn Lab</span>
         </div>
       </div>
       <div className="">
