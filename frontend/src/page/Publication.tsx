@@ -1,7 +1,8 @@
 import SubSideMenu from '../components/SubSideMenu'
 import PageTitle from '../components/PageTitle'
-import { publications } from '../data/Publications'
-import { Lectures } from '../data/Lectures'
+import { useEffect, useState } from 'react'
+import BlogAPI from '../api'
+import { LectureItem, PublicationsItem } from '../interface/request'
 
 const Publication = () => {
   const menuList = [
@@ -9,7 +10,36 @@ const Publication = () => {
     { name: 'lectures', url: '#lectures' },
   ]
 
-  // console.log(Lectures)
+  const [isPublicationsRecord, setIsPublicationsRecord] = useState<PublicationsItem[]>([])
+  const [isLectureRecord, setIsLectureRecord] = useState<LectureItem[]>([])
+  const [years, setYears] = useState<string[]>([]);
+
+  const fetchPublicationData = async () => {
+    try {
+      const retv = await BlogAPI.fetchPulicationsList()
+      setIsPublicationsRecord(retv)
+    } catch (error) {
+      console.error('publication 가져오기 실패:', error)
+    }
+  }
+
+    const fetchLectureData = async () => {
+    try {
+      const retv = await BlogAPI.fetchLectureList()
+      setIsLectureRecord(retv)
+      const year = [...new Set(retv.map(obj => obj.lecture_date.slice(0,4)))]
+      // console.log(retv.map(obj => obj.lecture_date.slice(0,4)))
+      // console.log(year)
+      setYears(year)
+    } catch (error) {
+      console.error('뉴스 가져오기 실패:', error)
+    }
+  }
+
+  useEffect(() => {
+    fetchPublicationData()
+    fetchLectureData()
+  },[])
 
   return (
     <main className="space-y-9 mb-20 relative">
@@ -20,15 +50,15 @@ const Publication = () => {
             <div id="publications" className="scroll-m-[260px]">
               <PageTitle title="publications" page="Publication" />
               <div className="mt-8 space-y-10 sm:space-y-16">
-                {publications.map((p) => (
-                  <div className="grid md:gap-8 md:grid-cols-[300px_1fr] sm:gap-4">
+                {isPublicationsRecord.map((p, index) => (
+                  <div className="grid md:gap-8 md:grid-cols-[300px_1fr] sm:gap-4" key={p.id}>
                     <div className="flex items-center">
-                      <img src={p.image} alt="image" className="w-full h-auto" />
+                      <img src={`http://165.194.29.153/${p.publication_image}`} alt="image" className="w-full h-auto" />
                     </div>
-                    <div key={p.code} className="md:mt-8 sm:mt-0">
-                      <div className="text-lg font-bold">{p.code + '. ' + p.title}</div>
+                    <div key={p.id} className="md:mt-8 sm:mt-0">
+                      <div className="text-lg font-bold">{index + 1 + '. ' + p.publication_title}</div>
                       <div className="mt-4 text-sm text-gray-500">{p.author}</div>
-                      <div className="mt-2 text-sm text-gray-600">{p.publication}</div>
+                      <div className="mt-2 text-sm text-gray-600">{p.doi}</div>
                     </div>
                   </div>
                 ))}
@@ -37,18 +67,18 @@ const Publication = () => {
             <div id="lectures" className="scroll-m-[260px]">
               <PageTitle title="lectures" page="Publication" />
               <div className="mt-8">
-                {Lectures.map((l) => {
-                  const keys = Object.keys(l)
+                {years.map((year) => {
+                  // const keys = Object.keys(l)
                   // console.log(entries)
                   return (
-                    <div key={keys[0]} className="mt-8">
-                      <div className="text-3xl font-extrabold">{keys[0]}</div>
+                    <div key={year} className="mt-8">
+                      <div className="text-3xl font-extrabold">{year}</div>
                       <div className="mt-4">
-                        {l[keys[0]].map((e) => (
-                          <div key={e.code} className="mt-8">
-                            <div className="text-gray-500 font-bold">{e.date}</div>
-                            <div className="text-lg font-semibold mt-2">{e.title}</div>
-                            <div className="mt-2 text-gray-500">{e.korTitle}</div>
+                        {isLectureRecord.filter(item => item.lecture_date.slice(0,4) === year).map((e) => (
+                          <div key={e.id} className="mt-8">
+                            <div className="text-gray-500 font-bold">{e.lecture_date}</div>
+                            <div className="text-lg font-semibold mt-2">{e.lecture_title}</div>
+                            <div className="mt-2 text-gray-500">{e.lecture_description}</div>
                           </div>
                         ))}
                       </div>

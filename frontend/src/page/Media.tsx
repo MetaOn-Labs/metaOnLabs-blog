@@ -1,14 +1,41 @@
 // import Carousel from "../Carousel/Carousel";
 import SubSideMenu from '../components/SubSideMenu'
 import PageTitle from '../components/PageTitle'
-import { News } from '../data/Media';
-import { Youtubes } from '../data/Media';
+import BlogAPI from '../api'
+import { useEffect, useState } from 'react'
+import { NewsItem, YoutubeItem } from '../interface/request'
 
 const Media = () => {
   const menuList = [
     { name: 'News', url: '#news' },
     { name: 'Youtube', url: '#youtube' },
   ]
+
+  const [isNewsRecord, setIsNewsRecord] = useState<NewsItem[]>([])
+  const [isYoutubeRecord, setIsYoutubeRecord] = useState<YoutubeItem[]>([])
+
+  const fetchNewsData = async () => {
+    try {
+      const retv = await BlogAPI.fetchNewsList()
+      setIsNewsRecord(retv)
+    } catch (error) {
+      console.log('news fail : ', error)
+    }
+  }
+
+  const fetchYoutubeData = async () => {
+    try {
+      const retv = await BlogAPI.fetchYoutubeList()
+      setIsYoutubeRecord(retv)
+    } catch (error) {
+      console.log('news fail : ', error)
+    }
+  }
+
+  useEffect(() => {
+    fetchNewsData()
+    fetchYoutubeData()
+  }, [])
 
   return (
     <main className="space-y-9 mb-20 relative">
@@ -19,11 +46,11 @@ const Media = () => {
             <div id="news" className="scroll-m-[260px]">
               <PageTitle title="News" page="Media" />
               <div className="mt-8">
-                {News.map(p => (
-                  <div key={p.code} className='mt-8'>
-                    <div className='text-lg font-bold'>
-                      <a href={p.url} className='hover:decoration-solid hover:text-blue-800' target='_blank'>
-                        {p.code +". "+ p.title}
+                {isNewsRecord.map((p, index) => (
+                  <div key={p.news_title + index} className="mt-8">
+                    <div className="text-lg font-bold">
+                      <a href={p.news_link} className="hover:decoration-solid hover:text-blue-800" target="_blank">
+                        {index + 1 + '. ' + p.news_title}
                       </a>
                     </div>
                   </div>
@@ -32,12 +59,12 @@ const Media = () => {
             </div>
             <div id="youtube" className="scroll-m-[260px]">
               <PageTitle title="Youtube" page="Media" />
-              <div className='mt-8'>
-                {Youtubes.map(p => (
-                  <div key={p.code} className='mt-8'>
-                    <div className='text-lg font-bold'>
-                      <a href={p.url} className='hover:decoration-solid hover:text-blue-800' target='_blank'>
-                        {p.code +". "+ p.title}
+              <div className="mt-8">
+                {isYoutubeRecord.map((p, index) => (
+                  <div key={p.youtube_title + index} className="mt-8">
+                    <div className="text-lg font-bold">
+                      <a href={p.youtubue_link} className="hover:decoration-solid hover:text-blue-800" target="_blank">
+                        {index + 1 + '. ' + p.youtube_title}
                       </a>
                     </div>
                   </div>
@@ -49,6 +76,6 @@ const Media = () => {
       </section>
     </main>
   )
-};
+}
 
-export default Media;
+export default Media

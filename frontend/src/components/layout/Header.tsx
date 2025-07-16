@@ -9,6 +9,10 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 const AppHeader: React.FC = () => {
   const [openNav, setOpenNav] = useState(false)
 
+  const handleAdminClick = () => {
+    window.location.href = 'http://165.194.29.153/admin'
+  }
+
   useEffect(() => {
     window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false))
   }, [])
@@ -38,7 +42,7 @@ const AppHeader: React.FC = () => {
             <Link to={'/'}>home</Link>
           </button>
           <button className="text-gray-light hover:font-medium">contact</button>
-          <button className="text-gray-light hover:font-medium">admin</button>
+          <button className="text-gray-light hover:font-medium" onClick={handleAdminClick}>admin</button>
         </div>
       </section>
       <hr className="border-[#dedede]" />

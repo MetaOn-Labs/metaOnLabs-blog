@@ -18,6 +18,7 @@ import DashboardTitle from '../DashboardTitle'
 import TeamCard from '../TeamCard'
 import YoutubeThumbnailCard from '../YoutubeThumbnailCard'
 import { SectionLayout } from '../layout/Layout'
+import Contact from '../Contact'
 
 const Page = () => {
   const navigate = useNavigate()
@@ -166,6 +167,8 @@ const Page = () => {
         <YoutubeThumbnailCard />
         {/* <TeamCard /> */}
       </SectionLayout>
+      <div className="h-20" />
+      <Contact />
       {/* <SectionLayout>
         <div className="flex gap-5 overflow-x-auto items-center">
           <div className="font-semibold text-[26px] text-gray-light pr-4 border-r">YouTube</div>
