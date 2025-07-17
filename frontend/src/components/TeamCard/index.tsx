@@ -1,6 +1,6 @@
 import moon from '../../assets/concept/moon2.jpeg'
 import yu from '../../assets/concept/yu.jpeg'
-import kim from '../../assets/concept/kim.png'
+// import kim from '../../assets/concept/kim.png'
 import park from '../../assets/concept/park.jpeg'
 import jang from '../../assets/concept/jang.png'
 import { Avatar, Card, Typography } from '@material-tailwind/react'
@@ -27,7 +27,7 @@ const CardContainer = ({ cards }) => (
 const TeamCard = () => {
   const cardsData = [
     { id: 1, title: 'KyongMin Moon', content: 'M.D Ph.d', imgUrl: moon },
-    { id: 2, title: 'Badagreen', content: 'AI ∙ Software', imgUrl: kim },
+    // { id: 2, title: 'Badagreen', content: 'AI ∙ Software', imgUrl: kim },
     { id: 3, title: 'Yeongju Yu', content: 'Software', imgUrl: yu },
     { id: 4, title: 'Sanghwan Park', content: 'Software', imgUrl: park },
     { id: 5, title: 'youngin Jang', content: 'AI', imgUrl: jang },
