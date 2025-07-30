@@ -19,6 +19,7 @@ import TeamCard from '../TeamCard'
 import YoutubeThumbnailCard from '../YoutubeThumbnailCard'
 import { SectionLayout } from '../layout/Layout'
 import Contact from '../Contact'
+import { Map, Marker } from '@vis.gl/react-google-maps'
 
 const Page = () => {
   const navigate = useNavigate()
@@ -165,22 +166,21 @@ const Page = () => {
           <span />
         </DashboardTitle>
         <YoutubeThumbnailCard />
-        {/* <TeamCard /> */}
       </SectionLayout>
       <div className="h-20" />
       <Contact />
-      {/* <SectionLayout>
-        <div className="flex gap-5 overflow-x-auto items-center">
-          <div className="font-semibold text-[26px] text-gray-light pr-4 border-r">YouTube</div>
-          {Array(5)
-            .fill(null)
-            .map((_, index) => (
-              <div key={index} className="text-center shadow cursor-pointer hover:opacity-75">
-                <img src={thumnail} alt="YouTube Thumbnail" />
-              </div>
-            ))}
-        </div>
-      </SectionLayout> */}
+      <section style={{ display: 'flex', justifyContent: 'center' }}>
+        <Map
+          defaultZoom={15}
+          defaultCenter={{ lat: 37.50672, lng: 126.960733 }}
+          // onCameraChanged={(ev: MapCameraChangedEvent) =>
+          //   console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
+          // }
+          style={{ height: '300px', width: '500px' }}
+        >
+          <Marker position={{ lat: 37.50672, lng: 126.960733 }} clickable={false} draggable={false}/>
+        </Map>
+      </section>
     </main>
   )
 }
