@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-=======
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
->>>>>>> 3695e21 (Topic : 슬랙 token Env)
 import DashboardTitle from '../DashboardTitle'
 import { SectionLayout } from '../layout/Layout'
-import { Card } from '@material-tailwind/react'
+import { Button, Input, Textarea, Typography } from '@material-tailwind/react'
 
 const Contact = () => {
-<<<<<<< HEAD
-=======
   const [formValue, setFormValue] = useState({
     name: '',
     email: '',
@@ -51,37 +46,117 @@ const Contact = () => {
     setFormValue({ ...formValue, [name]: value })
   }
 
-  // const onClickSend = async () => {
-  // const result = await web.chat.postMessage({
-  //   text: 'hello world',
-  //   channel: id
-  // })
-  // console.log(`Successfully send message ${result.ts} in conversation ${conversationId}`);
-  // }
-
->>>>>>> 3695e21 (Topic : 슬랙 token Env)
   return (
     <SectionLayout>
       <DashboardTitle section="CONTACT" heading="Need to get in touch?">
         <span />
       </DashboardTitle>
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <Card
-          className="w-full h-full"
-          shadow={true}
-          placeholder={undefined}
-          onResize={undefined}
-          onResizeCapture={undefined}
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
-        >
-            <form>
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
-              <input type="text" placeholder="Message" />
-              <button type="submit">Submit</button>
-            </form>
-        </Card>
+        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+          <div className="mb-1 flex flex-col gap-6">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              Name
+            </Typography>
+            <Input
+              size="lg"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: 'before:content-none after:content-none',
+              }}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+              crossOrigin={undefined}
+              value={formValue.name}
+              onChange={onChangeFormValue}
+              name="name"
+            />
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              Email
+            </Typography>
+            <Input
+              size="lg"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: 'before:content-none after:content-none',
+              }}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+              crossOrigin={undefined}
+              value={formValue.email}
+              onChange={onChangeFormValue}
+              name="email"
+            />
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              Organization
+            </Typography>
+            <Input
+              size="lg"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: 'before:content-none after:content-none',
+              }}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+              crossOrigin={undefined}
+              value={formValue.organization}
+              onChange={onChangeFormValue}
+              name="organization"
+            />
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              Message
+            </Typography>
+            <Textarea
+              size="lg"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: 'before:content-none after:content-none',
+              }}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+              value={formValue.message}
+              onChange={onChangeFormValue}
+              name="message"
+            />
+          </div>
+          <Button
+            className="mt-6"
+            fullWidth
+            onClick={onClickSend}
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            Send
+          </Button>
+        </form>
       </div>
     </SectionLayout>
   )
