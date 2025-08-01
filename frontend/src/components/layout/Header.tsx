@@ -39,10 +39,10 @@ const AppHeader: React.FC = () => {
       <section>
         <div className="flex justify-end gap-4 p-2">
           <button className="text-gray-light hover:font-medium">
-            <Link to={'/'}>home</Link>
+            <Link to={'/'}>Home</Link>
           </button>
-          <button className="text-gray-light hover:font-medium">contact</button>
-          <button className="text-gray-light hover:font-medium" onClick={handleAdminClick}>admin</button>
+          <button className="text-gray-light hover:font-medium">Contact</button>
+          <button className="text-gray-light hover:font-medium" onClick={handleAdminClick}>Admin</button>
         </div>
       </section>
       <hr className="border-[#dedede]" />

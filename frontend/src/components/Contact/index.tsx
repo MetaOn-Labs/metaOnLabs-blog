@@ -47,7 +47,7 @@ const Contact = () => {
   }
 
   return (
-    <SectionLayout>
+    <div>
       <DashboardTitle section="CONTACT" heading="Need to get in touch?">
         <span />
       </DashboardTitle>
@@ -158,7 +158,7 @@ const Contact = () => {
           </Button>
         </form>
       </div>
-    </SectionLayout>
+    </div>
   )
 }
 

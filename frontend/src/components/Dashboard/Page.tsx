@@ -2,7 +2,7 @@ import Carousel from '../Carousel'
 // import thumnail from '../../assets/concept/y_thum_1.png'
 import { Button, Card, CardBody } from '@material-tailwind/react'
 
-import image1 from '../../assets/images/main_carousel_1.png'
+import image1 from '../../assets/images/main_carousel_1_1.png'
 import image2 from '../../assets/images/main_carousel_2.png'
 
 import cau from '../../assets/agency/cau.png'
@@ -31,7 +31,7 @@ const Page = () => {
   }
 
   return (
-    <main className="space-y-9 mb-20 overflow-x-hidden">
+    <main className="space-y-9 overflow-x-hidden">
       {/* <section className="absolute z-30 top-1/2 mt-20 text-white w-full text-center">
         <h1 className="font-bold">Respiratory Labs AI Connecte Project</h1>
       </section> */}
@@ -168,18 +168,23 @@ const Page = () => {
         <YoutubeThumbnailCard />
       </SectionLayout>
       <div className="h-20" />
-      <Contact />
       <section style={{ display: 'flex', justifyContent: 'center' }}>
-        <Map
-          defaultZoom={15}
-          defaultCenter={{ lat: 37.50672, lng: 126.960733 }}
-          // onCameraChanged={(ev: MapCameraChangedEvent) =>
-          //   console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
-          // }
-          style={{ height: '300px', width: '500px' }}
-        >
-          <Marker position={{ lat: 37.50672, lng: 126.960733 }} clickable={false} draggable={false}/>
-        </Map>
+        <div className="p-5 w-[500px]">
+          <Contact />
+        </div>
+        <div className="pt-8">
+          <Map
+            defaultZoom={15}
+            defaultCenter={{ lat: 37.50672, lng: 126.960733 }}
+            // onCameraChanged={(ev: MapCameraChangedEvent) =>
+            //   console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
+            // }
+            style={{ height: '620px', width: '500px' }}
+          >
+            <Marker position={{ lat: 37.50672, lng: 126.960733 }} clickable={false} draggable={false} />
+          </Map>
+          <span className="text-sm text-gray-500 pl-4 pt-4">서울특별시 동작구 흑석로 102 중앙대학교병원</span>
+        </div>
       </section>
     </main>
   )
