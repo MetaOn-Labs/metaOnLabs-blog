@@ -6,7 +6,7 @@ import jang from '../../assets/concept/jang.png'
 import { Avatar, Card, Typography } from '@material-tailwind/react'
 
 const CardContainer = ({ cards }) => (
-  <div className="mt-24  md:flex md:overflow-x-scroll xl:grid xl:gap-12 gap-x-24 xl:grid-cols-5">
+  <div className="mt-24  md:flex md:overflow-x-scroll xl:grid xl:gap-12 gap-x-24 xl:grid-cols-4">
     {cards.map((card) => (
       <Card color="transparent" shadow={false} className="text-center" key={card.id} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} onResize={undefined} onResizeCapture={undefined}>
         <Avatar
