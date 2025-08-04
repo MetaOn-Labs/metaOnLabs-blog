@@ -3,12 +3,9 @@ import PageTitle from '../components/PageTitle'
 import { useEffect, useState } from 'react'
 import BlogAPI from '../api'
 import { PublicationsItem } from '../interface/request'
+import { publicationSideMenu } from '../context/SideMenu'
 
 const Publication = () => {
-  const menuList = [
-    { name: 'Publications', url: '#publications' },
-    { name: 'lectures', url: '#lectures' },
-  ]
 
   const [isPublicationsRecord, setIsPublicationsRecord] = useState<PublicationsItem[]>([])
 
@@ -29,7 +26,7 @@ const Publication = () => {
     <main className="space-y-9 mb-20 relative">
       <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
         <div className="flex mt-4">
-          <SubSideMenu title="Publication" menuList={menuList} />
+          <SubSideMenu title="Publication" menuList={publicationSideMenu} />
           <div className="w-full lg:ml-72 md:ml-0 sm:ml-0">
             <div id="publications" className="scroll-m-[260px]">
               <PageTitle title="publications" page="Publication" />

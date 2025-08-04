@@ -6,13 +6,10 @@ import yu from '../assets/concept/yu.jpeg'
 // import kim from '../assets/concept/kim.png'
 import park from '../assets/concept/park.jpeg'
 import jang from '../assets/concept/jang.png'
+import { teamMenuList } from '../context/SideMenu'
 
 const TeamComponent: React.FC = () => {
-  const menuList = [
-    { name: 'M.D', url: '#md' },
-    { name: 'CO-WORKER', url: '#co-worker' },
-    { name: 'INSTITUTION', url: '#institution' },
-  ]
+
   const edu = ['을지대학교 대학원 의학박사 (내과학)', '을지대학교 대학원 의학석사 (내과학)', '충남대학교 의과대학 학사']
   const carrer = [
     '(현) 중앙대학교병원 전산담당(부실장)',
@@ -29,7 +26,7 @@ const TeamComponent: React.FC = () => {
     <main className="space-y-9 mb-20 relative">
       <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
         <div className="flex mt-4">
-          <SubSideMenu title="Team" menuList={menuList} />
+          <SubSideMenu title="Team" menuList={teamMenuList} />
           <div className="w-full lg:ml-72 md:ml-0 sm:ml-0">
             <div id="md" className='scroll-m-[260px]'>
               <PageTitle title="M.D" page="team" />

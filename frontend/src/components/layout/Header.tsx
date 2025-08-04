@@ -26,7 +26,7 @@ const NavListMenu = ({ menuItems }: { menuItems: any }) => {
 
   const renderItems = menuItems.items.map(({ name, path }) => (
     <a href={path} key={name}>
-      <MenuItem placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+      <MenuItem id={name} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         {name}
       </MenuItem>
     </a>
@@ -70,14 +70,7 @@ const NavListMenu = ({ menuItems }: { menuItems: any }) => {
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
-          <MenuItem
-            className="col-span-4 flex w-full flex-col gap-1"
-            placeholder={undefined}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
-          >
-            {renderItems}
-          </MenuItem>
+          {renderItems}
         </MenuList>
       </Menu>
       <div className="block lg:hidden">
@@ -143,9 +136,13 @@ function AppHeader() {
         <section>
           <div className="flex justify-end gap-4 p-2">
             <button className="text-gray-light hover:font-medium">
-              <Link replace to={'/'}>Home</Link>
+              <Link replace to={'/'}>
+                Home
+              </Link>
             </button>
-            <button className="text-gray-light hover:font-medium" onClick={handleContactClick}>Contact</button>
+            <button className="text-gray-light hover:font-medium" onClick={handleContactClick}>
+              Contact
+            </button>
             <button className="text-gray-light hover:font-medium" onClick={handleAdminClick}>
               Admin
             </button>

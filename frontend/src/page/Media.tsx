@@ -4,13 +4,9 @@ import PageTitle from '../components/PageTitle'
 import BlogAPI from '../api'
 import { useEffect, useState } from 'react'
 import { NewsItem } from '../interface/request'
+import { mediaSideMenu } from '../context/SideMenu'
 
 const Media = () => {
-  const menuList = [
-    { name: 'News', url: '#news' },
-    { name: 'Youtube', url: '#youtube' },
-    { name: 'Gallery', url: '#gallery' },
-  ]
 
   const [isNewsRecord, setIsNewsRecord] = useState<NewsItem[]>([])
 
@@ -31,7 +27,7 @@ const Media = () => {
     <main className="space-y-9 mb-20 relative">
       <section className="xl:w-[1170px] lg:w-[970px] md:w-[750px] sm:w-[450px] mx-auto">
         <div className="flex mt-4">
-          <SubSideMenu title="Media" menuList={menuList} />
+          <SubSideMenu title="Media" menuList={mediaSideMenu} />
           <div className="w-full lg:ml-72 md:ml-0 sm:ml-0">
             <div id="news" className="scroll-m-[260px]">
               <PageTitle title="News" page="Media" />
