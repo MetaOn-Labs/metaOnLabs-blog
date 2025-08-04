@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
 import DashboardTitle from '../DashboardTitle'
-import { SectionLayout } from '../layout/Layout'
+// import { SectionLayout } from '../layout/Layout'
 import { Button, Input, Textarea, Typography } from '@material-tailwind/react'
 
 const Contact = () => {
@@ -47,7 +47,7 @@ const Contact = () => {
   }
 
   return (
-    <div>
+    <div id='contact'>
       <DashboardTitle section="CONTACT" heading="Need to get in touch?">
         <span />
       </DashboardTitle>

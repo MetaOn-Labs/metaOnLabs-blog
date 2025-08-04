@@ -133,15 +133,19 @@ function AppHeader() {
     window.location.href = 'http://165.194.29.153/admin'
   }
 
+  const handleContactClick = () => {
+    window.location.href = '#contact'
+  }
+
   return (
     <header className="fixed bg-white w-full z-50">
       <div className="container mx-auto">
         <section>
           <div className="flex justify-end gap-4 p-2">
             <button className="text-gray-light hover:font-medium">
-              <Link to={'/'}>Home</Link>
+              <Link replace to={'/'}>Home</Link>
             </button>
-            <button className="text-gray-light hover:font-medium">Contact</button>
+            <button className="text-gray-light hover:font-medium" onClick={handleContactClick}>Contact</button>
             <button className="text-gray-light hover:font-medium" onClick={handleAdminClick}>
               Admin
             </button>
