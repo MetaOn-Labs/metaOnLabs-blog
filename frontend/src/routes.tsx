@@ -26,17 +26,17 @@ export const routes = [
     items: [
       {
         name: 'News',
-        path: 'news',
+        path: '/media/news',
         element: <Media />,
       },
       {
         name: 'Youtube',
-        path: 'youtube',
+        path: '/media/youtube',
         element: <Youtube />,
       },
       {
         name: 'Gallery',
-        path: 'gallery',
+        path: '/media/gallery',
         element: <Gallery />,
       },
     ],
@@ -46,8 +46,8 @@ export const routes = [
     path: '/publication',
     element: <Publication />,
     items: [
-      { name: 'Publication', path: 'publication', element: <Publication /> },
-      { name: 'Lectures', path: 'lectures', element: <Lectures /> },
+      { name: 'Publication', path: '/publication/publication', element: <Publication /> },
+      { name: 'Lectures', path: '/publication/lectures', element: <Lectures /> },
     ],
   },
 ]
