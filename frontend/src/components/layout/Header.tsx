@@ -24,7 +24,7 @@ const NavListMenu = ({ menuItems }: { menuItems: any }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
-  const renderItems = menuItems.items.map(({ name, path }) => (
+  const renderItems = menuItems.items.filter(({name}) => name !== 'GalleryDetail').map(({ name, path }) => (
     <a href={path} key={name}>
       <MenuItem id={name} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         {name}
@@ -107,6 +107,25 @@ function NavList() {
           onPointerLeaveCapture={undefined}
         >
           Team
+        </ListItem>
+      </Typography>
+      <Typography
+        as="a"
+        href="/team"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+        placeholder={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
+        <ListItem
+          className="flex items-center gap-2 py-2 pr-4"
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        >
+          Notice
         </ListItem>
       </Typography>
     </List>
