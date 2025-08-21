@@ -5,6 +5,7 @@ import BlogAPI from '../api'
 import { useEffect, useState } from 'react'
 import { YoutubeItem } from '../interface/request'
 import { mediaSideMenu } from '../context/SideMenu'
+import { BLOG_YOUTUBE } from '../api/ApiUrl'
 
 const Youtube = () => {
 
@@ -12,7 +13,7 @@ const Youtube = () => {
 
   const fetchYoutubeData = async () => {
     try {
-      const retv = await BlogAPI.fetchYoutubeList()
+      const retv = await BlogAPI.getData<YoutubeItem[]>(BLOG_YOUTUBE, 'youtube')
       setIsYoutubeRecord(retv)
     } catch (error) {
       console.log('news fail : ', error)

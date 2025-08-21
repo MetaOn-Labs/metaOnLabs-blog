@@ -5,6 +5,7 @@ import BlogAPI from '../api'
 import { useEffect, useState } from 'react'
 import { NewsItem } from '../interface/request'
 import { mediaSideMenu } from '../context/SideMenu'
+import { BLOG_NEWS } from '../api/ApiUrl'
 
 const Media = () => {
 
@@ -12,7 +13,7 @@ const Media = () => {
 
   const fetchNewsData = async () => {
     try {
-      const retv = await BlogAPI.fetchNewsList()
+      const retv = await BlogAPI.getData<NewsItem[]>(BLOG_NEWS, 'news')
       setIsNewsRecord(retv)
     } catch (error) {
       console.log('news fail : ', error)

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import BlogAPI from '../api'
 import { LectureItem } from '../interface/request'
 import { publicationSideMenu } from '../context/SideMenu'
+import { BLOG_LECTURE } from '../api/ApiUrl'
 
 const Lectures = () => {
   const [isLectureRecord, setIsLectureRecord] = useState<LectureItem[]>([])
@@ -11,7 +12,7 @@ const Lectures = () => {
 
   const fetchLectureData = async () => {
     try {
-      const retv = await BlogAPI.fetchLectureList()
+      const retv = await BlogAPI.getData<LectureItem[]>(BLOG_LECTURE, 'lecture')
       setIsLectureRecord(retv)
       const year = [...new Set(retv.map((obj) => obj.lecture_date.slice(0, 4)))]
       // console.log(retv.map(obj => obj.lecture_date.slice(0,4)))

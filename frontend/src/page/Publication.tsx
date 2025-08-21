@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import BlogAPI from '../api'
 import { PublicationsItem } from '../interface/request'
 import { publicationSideMenu } from '../context/SideMenu'
+import { BLOG_PUPLICATION } from '../api/ApiUrl'
 
 const Publication = () => {
 
@@ -11,7 +12,7 @@ const Publication = () => {
 
   const fetchPublicationData = async () => {
     try {
-      const retv = await BlogAPI.fetchPulicationsList()
+      const retv = await BlogAPI.getData<PublicationsItem[]>(BLOG_PUPLICATION, 'publication')
       setIsPublicationsRecord(retv)
     } catch (error) {
       console.error('publication 가져오기 실패:', error)
@@ -34,7 +35,7 @@ const Publication = () => {
                 {isPublicationsRecord.map((p, index) => (
                   <div className="grid md:gap-8 md:grid-cols-[300px_1fr] sm:gap-4" key={p.id}>
                     <div className="flex items-center">
-                      <img src={`http://165.194.29.153/${p.publication_image}`} alt="image" className="w-full h-auto" />
+                      <img src={`${import.meta.env.VITE_APP_URL}/${p.publication_image}`} alt="image" className="w-full h-auto" />
                     </div>
                     <div key={p.id} className="md:mt-8 sm:mt-0">
                       <div className="text-lg font-bold">{index + 1 + '. ' + p.publication_title}</div>

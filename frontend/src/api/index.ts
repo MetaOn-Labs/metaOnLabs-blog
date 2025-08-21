@@ -1,61 +1,108 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { LectureItem, NewsItem, PublicationsItem, YoutubeItem } from '../interface/request'
-// const apiUrl = `${process.env.REACT_APP_API}/api/v1`
-const apiUrl = `http://165.194.29.153/api/v1`
+const apiUrl = `${import.meta.env.VITE_APP_URL}/api/v1`
+// const apiUrl = `http://localhost:9000/api/v1`
+
+interface APIResponse<T> {
+  code: number
+  message: string
+  data: T
+}
 
 class BlogAPI {
-  async fetchNewsList(): Promise<NewsItem[]> {
-    const response = await fetch(`${apiUrl}/blog/news`)
-    const result = await response.json()
+  public getData = async <T>(url: string, type?: string): Promise<T> => {
+    const response = await fetch(apiUrl + url)
+    const result: APIResponse<T> = await response.json()
     if (result.code !== 200) {
-      throw new Error(result.message || 'News 목록을 불러오는 데 실패했습니다.')
+      throw new Error(result.message || `${type} 목록을 불러오는 데 실패했습니다.`)
     }
-
     return result.data
   }
-  async fetchYoutubeList(): Promise<YoutubeItem[]> {
-    const response = await fetch(`${apiUrl}/blog/youtube`)
-    const result = await response.json()
-    if (result.code !== 200) {
-      throw new Error(result.message || 'Youtube 목록을 불러오는 데 실패했습니다.')
-    }
 
-    return result.data
-  }
-  async fetchPulicationsList(): Promise<PublicationsItem[]> {
-    const response = await fetch(`${apiUrl}/blog/publications`)
-    const result = await response.json()
-    if (result.code !== 200) {
-      throw new Error(result.message || 'publications 목록을 불러오는 데 실패했습니다.')
-    }
-
-    return result.data
-  }
-  async fetchLectureList(): Promise<LectureItem[]> {
-    const response = await fetch(`${apiUrl}/blog/lecture`)
-    const result = await response.json()
-    if (result.code !== 200) {
-      throw new Error(result.message || 'publications 목록을 불러오는 데 실패했습니다.')
-    }
-
-    return result.data
-  }
-  async postData(body, url): Promise<any> {
-    const response = await fetch(`${apiUrl}/blog/${url}`, {
+  /**
+   * postData
+   * url: 호출할 url
+   * body: formData
+   * type: 호출한 위치
+   */
+  public postData = async <T>(url: string, body: any, type?: string) => {
+    const response = await fetch(`${apiUrl}${url}`, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    const result = await response.json()
+    const result: APIResponse<T> = await response.json()
     if (result.code !== 200) {
-      throw new Error(result.message || `${url}를 등록하는데 실패했습니다.`)
+      throw new Error(result.message || `${type}를 등록하는데 실패했습니다.`)
     }
-
     return result.data
   }
-  async postFileData(body, url): Promise<any> {
+
+  /**
+   * putData
+   * url: 호출할 url
+   * body: formData
+   * type: 호출한 위치
+   */
+  public putData = async <T>(url: string, body: any, type?: string) => {
+    const response = await fetch(`${apiUrl}${url}`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const result: APIResponse<T> = await response.json()
+    if (result.code !== 200) {
+      throw new Error(result.message || `${type}를 수정하는데 실패했습니다.`)
+    }
+    return result.data
+  }
+
+  /**
+   * patchData
+   * url: 호출할 url
+   * body: formData
+   * type: 호출한 위치
+   */
+  public patchData = async <T>(url: string, body: any, type?: string) => {
+    const response = await fetch(`${apiUrl}${url}`, {
+      method: 'PATCH',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const result: APIResponse<T> = await response.json()
+    if (result.code !== 200) {
+      throw new Error(result.message || `${type}를 수정하는데 실패했습니다.`)
+    }
+    return result.data
+  }
+
+  /**
+   * deleteData
+   * url: 호출할 url
+   * body: formData
+   * type: 호출한 위치
+   */
+  public deleteData = async <T>(url: string, body: any, type?: string) => {
+    const response = await fetch(`${apiUrl}${url}`, {
+      method: 'DELETE',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const result: APIResponse<T> = await response.json()
+    if (result.code !== 200) {
+      throw new Error(result.message || `${type}를 삭제하는데 실패했습니다.`)
+    }
+    return result
+  }
+
+  async postFileData(url, body): Promise<any> {
     const response = await fetch(`${apiUrl}/blog/${url}`, {
       method: 'POST',
       body: body,
@@ -64,24 +111,9 @@ class BlogAPI {
     if (result.code !== 200) {
       throw new Error(result.message || `${url}를 등록하는데 실패했습니다.`)
     }
-
     return result.data
   }
-  async putData(body, url): Promise<any> {
-    const response = await fetch(`${apiUrl}/blog/${url}`, {
-      method: 'PUT',
-      body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    const result = await response.json()
-    if (result.code !== 200) {
-      throw new Error(result.message || `${url}를 수정하는데 실패했습니다.`)
-    }
 
-    return result.data
-  }
   async putFileData(body, url): Promise<any> {
     const response = await fetch(`${apiUrl}/blog/${url}`, {
       method: 'PUT',
@@ -91,7 +123,6 @@ class BlogAPI {
     if (result.code !== 200) {
       throw new Error(result.message || `${url}를 수정하는데 실패했습니다.`)
     }
-
     return result.data
   }
 }
