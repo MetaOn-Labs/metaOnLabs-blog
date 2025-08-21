@@ -5,19 +5,20 @@ import Media from './page/Media'
 import Youtube from './page/Youtube'
 import Gallery from './page/Gallery'
 import Lectures from './page/Lectures'
+import GalleryDetail from './page/GalleryDetail'
 
 export const routes = [
   {
     name: '',
     path: '/',
     element: <Dashboard />,
-    items: []
+    items: [],
   },
   {
     name: 'Team',
     path: '/team',
     element: <Team />,
-    items: []
+    items: [],
   },
   {
     name: 'Media',
@@ -39,6 +40,11 @@ export const routes = [
         path: '/media/gallery',
         element: <Gallery />,
       },
+      { 
+        name: 'GalleryDetail', 
+        path: '/media/gallery/:gid', 
+        element: <GalleryDetail /> 
+      },
     ],
   },
   {
@@ -50,6 +56,12 @@ export const routes = [
       { name: 'Lectures', path: '/publication/lectures', element: <Lectures /> },
     ],
   },
+  // {
+  //   name: 'Notice',
+  //   path: '/notice',
+  //   element: <Team />,
+  //   items: [{ name: 'Lectures', path: '/publication/lectures', element: <Lectures /> }],
+  // },
 ]
 
 export default routes

@@ -1,27 +1,26 @@
-// import Carousel from "../Carousel/Carousel";
 import SubSideMenu from '../components/SubSideMenu'
 import PageTitle from '../components/PageTitle'
-// import BlogAPI from '../api'
-// import { useEffect, useState } from 'react'
-// import { YoutubeItem } from '../interface/request'
+import BlogAPI from '../api'
+import { useEffect, useState } from 'react'
+import { GalleryListItem } from '../interface/request'
 import { mediaSideMenu } from '../context/SideMenu'
+import { BLOG_GALLERY } from '../api/ApiUrl'
 
 const Gallery = () => {
+  const [iseRecord, setIseRecord] = useState<GalleryListItem[]>([])
 
-  // const [isYoutubeRecord, setIsYoutubeRecord] = useState<YoutubeItem[]>([])
+  const fetchData = async () => {
+    try {
+      const retv = await BlogAPI.getData<GalleryListItem[]>(BLOG_GALLERY, 'gallery')
+      setIseRecord(retv)
+    } catch (error) {
+      console.log('news fail : ', error)
+    }
+  }
 
-  // const fetchYoutubeData = async () => {
-  //   try {
-  //     const retv = await BlogAPI.fetchYoutubeList()
-  //     setIsYoutubeRecord(retv)
-  //   } catch (error) {
-  //     console.log('news fail : ', error)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   fetchYoutubeData()
-  // }, [])
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <main className="space-y-9 mb-20 relative">
@@ -32,15 +31,17 @@ const Gallery = () => {
             <div id="gallery" className="scroll-m-[260px]">
               <PageTitle title="Gallery" page="Media" />
               <div className="mt-8">
-                {/* {isYoutubeRecord.map((p, index) => (
-                  <div key={p.youtube_title + index} className="mt-8">
-                    <div className="text-lg font-bold">
-                      <a href={p.youtubue_link} className="hover:decoration-solid hover:text-blue-800" target="_blank">
-                        {index + 1 + '. ' + p.youtube_title}
+                <div className='grid grid-cols-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'>
+                  {iseRecord.map((recode) => (
+                    <div className='h-56 hover:cursor-pointer' key={recode.id}>
+                      <a href={`/media/gallery/${recode.id}`}>
+                        <img src={recode.file_url} alt={recode.original_name} height={'300px'}/>
+                        <p className=''>{recode.title}</p>
                       </a>
                     </div>
-                  </div>
-                ))} */}
+                  ))}
+                  
+                </div>
               </div>
             </div>
           </div>
