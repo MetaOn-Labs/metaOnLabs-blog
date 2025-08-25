@@ -6,6 +6,8 @@ import Youtube from './page/Youtube'
 import Gallery from './page/Gallery'
 import Lectures from './page/Lectures'
 import GalleryDetail from './page/GalleryDetail'
+import Notice from './page/Notice'
+import NoticeDetail from './page/NoticeDetail.'
 
 export const routes = [
   {
@@ -56,12 +58,23 @@ export const routes = [
       { name: 'Lectures', path: '/publication/lectures', element: <Lectures /> },
     ],
   },
-  // {
-  //   name: 'Notice',
-  //   path: '/notice',
-  //   element: <Team />,
-  //   items: [{ name: 'Lectures', path: '/publication/lectures', element: <Lectures /> }],
-  // },
+  {
+    name: 'Notice',
+    path: '/notice',
+    element: <Notice />,
+    items: [
+      { 
+        name: 'Notice', 
+        path: '/notice', 
+        element: <Notice /> 
+      },
+      { 
+        name: 'NoticeDetail', 
+        path: '/notice/:nid', 
+        element: <NoticeDetail /> 
+      },
+    ],
+  },
 ]
 
 export default routes

@@ -111,7 +111,7 @@ function NavList() {
       </Typography>
       <Typography
         as="a"
-        href="/team"
+        href="/notice"
         variant="small"
         color="blue-gray"
         className="font-medium"

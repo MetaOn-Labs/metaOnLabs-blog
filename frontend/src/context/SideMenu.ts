@@ -14,3 +14,7 @@ export const teamMenuList = [
   { name: 'CO-WORKER', url: '#co-worker' },
   { name: 'INSTITUTION', url: '#institution' },
 ]
+
+export const noticeMenuList = [
+  { name: 'Notice', url: '/notice'}
+]

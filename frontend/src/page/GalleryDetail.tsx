@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 import { BLOG_GALLERY } from '../api/ApiUrl'
 
 const GalleryDetail = () => {
-  const param =  useParams()
+  const param = useParams()
   const [iseRecord, setIseRecord] = useState<GalleryListItem | undefined>()
 
   const fetchData = async (gid: string) => {
@@ -39,13 +39,13 @@ const GalleryDetail = () => {
               <PageTitle title="Gallery" page="Media" />
               <div className="mt-8">
                 {iseRecord && (
-                <div className='border-b border-gray-400 mb-10 p-5'>
-                  <div className='border-t border-b border-gray-400 flex mb-4'>
-                    <div className='bg-gray-300 px-3 py-2'>제목</div>
-                    <div className='px-3 py-2'>{iseRecord.title}</div>
+                  <div className="border-b border-gray-400 mb-10 p-5">
+                    <div className="border-t border-b border-gray-400 flex mb-4">
+                      <div className="bg-gray-300 px-3 py-2">제목</div>
+                      <div className="px-3 py-2">{iseRecord.title}</div>
+                    </div>
+                    <div dangerouslySetInnerHTML={{ __html: iseRecord.description }} />
                   </div>
-                  {iseRecord.description}
-                </div>
                 )}
                 {/* <div className='grid grid-cols-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'>
                   <div className='h-56 hover:cursor-pointer'>
@@ -70,4 +70,4 @@ const GalleryDetail = () => {
   )
 }
 
-export default GalleryDetail;
+export default GalleryDetail
