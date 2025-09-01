@@ -25,3 +25,8 @@ dist-ssr
 /node_modules
 /build
 .env.development
+
+dist
+/dist
+
+.env

@@ -1,6 +1,9 @@
-import { Card, CardBody, Typography } from '@material-tailwind/react'
-import { Youtubes } from '../../data/Media'
+import { Button, Card, CardBody, Typography } from '@material-tailwind/react'
 import useGetYoubuteThumbnail from '../../util/useGetYoubuteThumbnail'
+import { useEffect, useState } from 'react'
+import { YoutubeItem } from '../../interface/request'
+import BlogAPI from '../../api'
+import { BLOG_YOUTUBE } from '../../api/ApiUrl'
 
 const YoutubeThumbnail = ({ img, name }) => {
   const image = useGetYoubuteThumbnail(img)
@@ -8,11 +11,35 @@ const YoutubeThumbnail = ({ img, name }) => {
     window.open(url)
   }
   return (
-    <Card shadow={false} className="border border-gray-300" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-      <CardBody className="pb-0" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+    <Card
+      shadow={false}
+      className="border border-gray-300"
+      placeholder={undefined}
+      onResize={undefined}
+      onResizeCapture={undefined}
+      onPointerEnterCapture={undefined}
+      onPointerLeaveCapture={undefined}
+    >
+      <CardBody
+        className="pb-0"
+        placeholder={undefined}
+        onResize={undefined}
+        onResizeCapture={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
         <img src={image} alt={img} className="min-w-[280px] w-full" />
         <div className="flex justify-between mt-5 hover:cursor-pointer" onClick={() => onClick(img)}>
-          <Typography className="mb-2 hover:decoration-solid" color="blue-gray" variant="h6">
+          <Typography
+            className="mb-2 hover:decoration-solid"
+            color="blue-gray"
+            variant="h6"
+            placeholder={undefined}
+            onResize={undefined}
+            onResizeCapture={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
             {name}
           </Typography>
         </div>
@@ -21,13 +48,42 @@ const YoutubeThumbnail = ({ img, name }) => {
   )
 }
 
-const YoutubeThumbnailCard = () => {
+const YoutubeThumbnailCard = ({ onClickMore }) => {
+  const [isYoutubeRecord, setIsYoutubeRecord] = useState<YoutubeItem[]>([])
+
+  const fetchYoutubeData = async () => {
+    try {
+      const retv = await BlogAPI.getData<YoutubeItem[]>(BLOG_YOUTUBE,'youtube')
+      setIsYoutubeRecord(retv)
+    } catch (error) {
+      console.log('news fail : ', error)
+    }
+  }
+
+  useEffect(() => {
+    fetchYoutubeData()
+  }, [])
+
   return (
-    <div className="flex flex-col gap-8 md:overflow-x-scroll md:flex-row">
-      {Youtubes.map((youtube) => (
-        <YoutubeThumbnail img={youtube.url} name={youtube.title} key={youtube.code} />
-      ))}
-    </div>
+    <>
+      <div className="hidden md:flex-row md:gap-8 md:overflow-x-scroll md:flex">
+        {isYoutubeRecord.slice(0, 5).map((youtube) => (
+          <YoutubeThumbnail img={youtube.youtubue_link} name={youtube.youtube_title} key={youtube.id} />
+        ))}
+      </div>
+      <Button
+        className="hidden mt-6 mx-auto md:flex"
+        variant="outlined"
+        onClick={() => onClickMore('/media/youtube')}
+        placeholder={undefined}
+        onResize={undefined}
+        onResizeCapture={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
+        see all youtube
+      </Button>
+    </>
   )
 }
 

@@ -1,74 +1,218 @@
-import React, { useEffect, useState } from 'react'
-// import { Layout, Menu } from 'antd';
-import lab_logo from '../../assets/concept/racp_logo.png'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState, useEffect } from 'react'
+import lab_logo from '../../assets/concept/metaonlab_logo_vertical.png'
 import { Link } from 'react-router-dom'
-import { Navbar as MTNavbar, MobileNav, Typography, IconButton } from '@material-tailwind/react'
+import {
+  Navbar,
+  Collapse,
+  Typography,
+  IconButton,
+  List,
+  ListItem,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+} from '@material-tailwind/react'
+import { ChevronDownIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import routes from '../../routes'
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const AppHeader: React.FC = () => {
+const mediaListMenuItems = routes.filter((route) => route.name === 'Media')[0]
+const publicListMenuItems = routes.filter((route) => route.name === 'Publication')[0]
+
+const NavListMenu = ({ menuItems }: { menuItems: any }) => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+
+  const renderItems = menuItems.items.filter(({name}) => name !== 'GalleryDetail').map(({ name, path }) => (
+    <a href={path} key={name}>
+      <MenuItem id={name} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        {name}
+      </MenuItem>
+    </a>
+  ))
+
+  return (
+    <React.Fragment>
+      <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom" allowHover={true}>
+        <MenuHandler>
+          <Typography
+            as="div"
+            variant="small"
+            className="font-medium"
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            <ListItem
+              className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              {menuItems.name}
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? 'rotate-180' : ''}`}
+              />
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${isMobileMenuOpen ? 'rotate-180' : ''}`}
+              />
+            </ListItem>
+          </Typography>
+        </MenuHandler>
+        <MenuList
+          className="hidden overflow-visible lg:grid"
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        >
+          {renderItems}
+        </MenuList>
+      </Menu>
+      <div className="block lg:hidden">
+        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+      </div>
+    </React.Fragment>
+  )
+}
+
+function NavList() {
+  return (
+    <List
+      className="mb-6 mt-4 p-0 lg:mb-0 lg:mt-0 lg:flex-row lg:p-1"
+      placeholder={undefined}
+      onPointerEnterCapture={undefined}
+      onPointerLeaveCapture={undefined}
+    >
+      <NavListMenu menuItems={mediaListMenuItems} />
+      <NavListMenu menuItems={publicListMenuItems} />
+      <Typography
+        as="a"
+        href="/team"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+        placeholder={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
+        <ListItem
+          className="flex items-center gap-2 py-2 pr-4"
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        >
+          Team
+        </ListItem>
+      </Typography>
+      <Typography
+        as="a"
+        href="/notice"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+        placeholder={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
+        <ListItem
+          className="flex items-center gap-2 py-2 pr-4"
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        >
+          Notice
+        </ListItem>
+      </Typography>
+    </List>
+  )
+}
+
+function AppHeader() {
   const [openNav, setOpenNav] = useState(false)
+
+  // const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur)
 
   useEffect(() => {
     window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false))
   }, [])
 
-  const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      {routes.map(({ name, path }) => (
-        <Typography key={name} as="li" variant="lead" color="inherit" className="capitalize">
-          <Link
-            to={path}
-            // target={target}
-            className="flex items-center gap-1 p-1 font-bold"
-          >
-            {name}
-          </Link>
-        </Typography>
-      ))}
-    </ul>
-  )
+  const handleAdminClick = () => {
+    window.location.href = 'http://165.194.29.153/admin'
+  }
+
+  const handleContactClick = () => {
+    window.location.href = '#contact'
+  }
 
   return (
     <header className="fixed bg-white w-full z-50">
       <div className="container mx-auto">
-      <section>
-        <div className="flex justify-end gap-4 p-2">
-          <button className="text-gray-light hover:font-medium">
-            <Link to={'/'}>home</Link>
-          </button>
-          <button className="text-gray-light hover:font-medium">contact</button>
-          <button className="text-gray-light hover:font-medium">admin</button>
-        </div>
-      </section>
-      <hr className="border-[#dedede]" />
-      <section>
-        <MTNavbar color="transparent" className="p-3" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          <div className="container mx-auto flex items-center justify-between text-black">
-            <Link to="/">
-              <img src={lab_logo} alt='logo' width={105}/>
-            </Link>
-            <div className="hidden lg:block">{navList}</div>
-            <IconButton
+        <section>
+          <div className="flex justify-end gap-4 p-2">
+            <button className="text-gray-light hover:font-medium">
+              <Link replace to={'/'}>
+                Home
+              </Link>
+            </button>
+            <button className="text-gray-light hover:font-medium" onClick={handleContactClick}>
+              Contact
+            </button>
+            <button className="text-gray-light hover:font-medium" onClick={handleAdminClick}>
+              Admin
+            </button>
+          </div>
+        </section>
+        <hr className="border-[#dedede]" />
+        <section>
+          <Navbar
+            className="mx-auto max-w-screen-xl p-2 lg:pl-6 rounded-none shadow-none"
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
+              <Typography
+                as="a"
+                href="/"
+                className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
+                placeholder={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+                <img src={lab_logo} alt="logo" width={130} />
+              </Typography>
+              <div className="hidden lg:block">
+                <NavList />
+              </div>
+              <IconButton
                 variant="text"
                 size="sm"
                 color="gray"
                 className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-                onClick={() => setOpenNav(!openNav)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
-              {openNav ? (
-                <XMarkIcon strokeWidth={2} className="h-6 w-6" />
-              ) : (
-                <Bars3Icon strokeWidth={2} className="h-6 w-6" />
-              )}
-            </IconButton>
-          </div>
-          <MobileNav className="rounded-xl bg-white px-4 pt-2 pb-4 text-blue-gray-900 lg:hidden" open={openNav}>
-            <div className="container mx-auto">
-              {navList}
+                onClick={() => setOpenNav(!openNav)}
+                placeholder={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+                onResize={undefined}
+                onResizeCapture={undefined}
+              >
+                {openNav ? (
+                  <XMarkIcon strokeWidth={2} className="h-6 w-6" />
+                ) : (
+                  <Bars3Icon strokeWidth={2} className="h-6 w-6" />
+                )}
+              </IconButton>
             </div>
-          </MobileNav>
-        </MTNavbar>
-      </section>
+            <Collapse open={openNav}>
+              <NavList />
+            </Collapse>
+          </Navbar>
+        </section>
       </div>
     </header>
   )
