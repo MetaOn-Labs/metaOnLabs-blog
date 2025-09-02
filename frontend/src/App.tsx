@@ -14,7 +14,19 @@ function App() {
         <AppHeader />
         <div className="main-content">
           <Routes>
-            {routes.map(({ path, element }, key) => element && <Route key={key} path={path} element={element} />)}
+            {routes.map(({ path, element, items, name }, key) => {
+              if (element && items.length == 0) {
+                return <Route key={key} path={path} element={element} index={key === 0 ? true : false}/>
+              } else {
+                return (
+                  <Route path={name.toLowerCase()} >
+                    {items.map(({ path, element, name }, index) => (
+                      <Route index={index === 0 ? true : false} key={name} path={path} element={element} />
+                    ))}
+                  </Route>
+                )
+              }
+            })}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

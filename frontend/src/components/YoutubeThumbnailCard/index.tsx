@@ -1,7 +1,9 @@
 import { Button, Card, CardBody, Typography } from '@material-tailwind/react'
-import { Youtubes } from '../../data/Media'
 import useGetYoubuteThumbnail from '../../util/useGetYoubuteThumbnail'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { YoutubeItem } from '../../interface/request'
+import BlogAPI from '../../api'
+import { BLOG_YOUTUBE } from '../../api/ApiUrl'
 
 const YoutubeThumbnail = ({ img, name }) => {
   const image = useGetYoubuteThumbnail(img)
@@ -46,23 +48,33 @@ const YoutubeThumbnail = ({ img, name }) => {
   )
 }
 
-const YoutubeThumbnailCard = () => {
-  const navigate = useNavigate()
+const YoutubeThumbnailCard = ({ onClickMore }) => {
+  const [isYoutubeRecord, setIsYoutubeRecord] = useState<YoutubeItem[]>([])
 
-  const onClickMore = (url: string) => {
-    navigate(url)
+  const fetchYoutubeData = async () => {
+    try {
+      const retv = await BlogAPI.getData<YoutubeItem[]>(BLOG_YOUTUBE,'youtube')
+      setIsYoutubeRecord(retv)
+    } catch (error) {
+      console.log('news fail : ', error)
+    }
   }
+
+  useEffect(() => {
+    fetchYoutubeData()
+  }, [])
+
   return (
     <>
       <div className="hidden md:flex-row md:gap-8 md:overflow-x-scroll md:flex">
-        {Youtubes.map((youtube) => (
-          <YoutubeThumbnail img={youtube.url} name={youtube.title} key={youtube.code} />
+        {isYoutubeRecord.slice(0, 5).map((youtube) => (
+          <YoutubeThumbnail img={youtube.youtubue_link} name={youtube.youtube_title} key={youtube.id} />
         ))}
       </div>
       <Button
-        className="mt-6 mx-auto flex md:hidden"
+        className="hidden mt-6 mx-auto md:flex"
         variant="outlined"
-        onClick={() => onClickMore('/media#youtube')}
+        onClick={() => onClickMore('/media/youtube')}
         placeholder={undefined}
         onResize={undefined}
         onResizeCapture={undefined}

@@ -1,12 +1,14 @@
 import moon from '../../assets/concept/moon2.jpeg'
 import yu from '../../assets/concept/yu.jpeg'
-import kim from '../../assets/concept/kim.png'
+// import kim from '../../assets/concept/kim.png'
 import park from '../../assets/concept/park.jpeg'
 import jang from '../../assets/concept/jang.png'
+import kim_cau from '../../assets/concept/kim_cau.png'
+import woo_cau from '../../assets/concept/woo_cau.png'
 import { Avatar, Card, Typography } from '@material-tailwind/react'
 
 const CardContainer = ({ cards }) => (
-  <div className="mt-24  md:flex md:overflow-x-scroll xl:grid xl:gap-12 gap-x-24 xl:grid-cols-5">
+  <div className="mt-24  md:flex md:overflow-x-scroll xl:grid xl:gap-12 gap-x-24 xl:grid-cols-6">
     {cards.map((card) => (
       <Card color="transparent" shadow={false} className="text-center" key={card.id} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} onResize={undefined} onResizeCapture={undefined}>
         <Avatar
@@ -27,10 +29,12 @@ const CardContainer = ({ cards }) => (
 const TeamCard = () => {
   const cardsData = [
     { id: 1, title: 'KyongMin Moon', content: 'M.D Ph.d', imgUrl: moon },
-    { id: 2, title: 'Badagreen', content: 'AI ∙ Software', imgUrl: kim },
-    { id: 3, title: 'Yeongju Yu', content: 'Software', imgUrl: yu },
-    { id: 4, title: 'Sanghwan Park', content: 'Software', imgUrl: park },
-    { id: 5, title: 'youngin Jang', content: 'AI', imgUrl: jang },
+    { id: 6, title: 'Donghoon Kim', content: 'M.D', imgUrl: kim_cau},
+    { id: 7, title: 'SooHyun Woo', content: 'M.D', imgUrl: woo_cau},
+    // { id: 2, title: 'Badagreen', content: 'AI ∙ Software', imgUrl: kim },
+    { id: 3, title: 'YeongJu Yu', content: 'Software', imgUrl: yu },
+    { id: 4, title: 'SangHwan Park', content: 'Software', imgUrl: park },
+    { id: 5, title: 'youngIn Jang', content: 'AI', imgUrl: jang },
   ]
 
   return <CardContainer cards={cardsData} />
