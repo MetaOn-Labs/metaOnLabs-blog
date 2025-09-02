@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://metaonlab.co.kr",
+  "homepage": "http://metaonlab.co.kr",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -14,8 +14,9 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@material-tailwind/react": "^2.1.0",
-    "antd": "^5.21.6",
+    "@material-tailwind/react": "^2.1.10",
+    "@slack/web-api": "^7.9.3",
+    "@vis.gl/react-google-maps": "^1.5.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0"
