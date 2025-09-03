@@ -42,10 +42,10 @@ export const routes = [
         path: '/media/gallery',
         element: <Gallery />,
       },
-      { 
-        name: 'GalleryDetail', 
-        path: '/media/gallery/:gid', 
-        element: <GalleryDetail /> 
+      {
+        name: 'GalleryDetail',
+        path: '/media/gallery/:gid',
+        element: <GalleryDetail />
       },
     ],
   },
@@ -63,15 +63,15 @@ export const routes = [
     path: '/notice',
     element: <Notice />,
     items: [
-      { 
-        name: 'Notice', 
-        path: '/notice', 
-        element: <Notice /> 
+      {
+        name: 'Notice',
+        path: '/notice',
+        element: <Notice />
       },
-      { 
-        name: 'NoticeDetail', 
-        path: '/notice/:nid', 
-        element: <NoticeDetail /> 
+      {
+        name: 'NoticeDetail',
+        path: '/notice/:nid',
+        element: <NoticeDetail />
       },
     ],
   },

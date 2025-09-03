@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://metaonlab.co.kr",
+  "homepage": "http://metaonlab.co.kr",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

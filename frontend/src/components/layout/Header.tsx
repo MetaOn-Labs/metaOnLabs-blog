@@ -24,7 +24,7 @@ const NavListMenu = ({ menuItems }: { menuItems: any }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
-  const renderItems = menuItems.items.filter(({name}) => name !== 'GalleryDetail').map(({ name, path }) => (
+  const renderItems = menuItems.items.filter(({ name }) => name !== 'GalleryDetail').map(({ name, path }) => (
     <a href={path} key={name}>
       <MenuItem id={name} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         {name}
@@ -142,7 +142,7 @@ function AppHeader() {
   }, [])
 
   const handleAdminClick = () => {
-    window.location.href = 'http://165.194.29.153/admin'
+    window.location.href = 'http://165.194.29.154/admin'
   }
 
   const handleContactClick = () => {
