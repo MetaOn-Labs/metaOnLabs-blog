@@ -1,11 +1,11 @@
-name-template: 'MetaonLab Blog v$RESOLVED_VERSION'
+name-template: 'MetaOnLab Blog v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: '🆕 새로운 기능이 추가되었어요!'
     label: '✨ Feature'
   - title: '🐞 자잘한 버그를 수정했습니다.'
     label: '🐞 Bugfix'
-  - title: '🫶🏻 블로그 사용성 개선했습니다.'
+  - title: '🫶🏻 사용성 개선했습니다.'
     label: '🫶🏻 Improvement'
   - title: '🛠️ 더 나은 코드를 위해 노력하고 있습니다.'
     labels:
